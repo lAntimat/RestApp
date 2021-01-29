@@ -1,6 +1,7 @@
 package ru.lantimat.my.data.local.model
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import ru.lantimat.my.presentation.menulist.MenuAndHeader
 
@@ -12,5 +13,6 @@ data class MenuItem (
     val name: String,
     val description: String,
     val price: Int,
-    val imgUrl: String
+    val imgUrl: String,
+    var count: Int = 0
 ): MenuAndHeader

@@ -42,8 +42,8 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
             viewModel.onScrollChange()
         }
 
-        binding.recyclerView.apply {
-
+        (binding.recyclerView.adapter as MenuAdapter).apply {
+            setOnBtnClickListener { viewModel.onAddToBasketClick(it) }
         }
     }
 

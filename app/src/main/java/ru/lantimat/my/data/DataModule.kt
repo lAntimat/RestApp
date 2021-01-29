@@ -60,8 +60,8 @@ val dataModule = module {
             .build()
     }
 
-    single { get<DishesDatabase>().bookDao }
-    single { get<DishesDatabase>().bookDao }
+    single { get<DishesDatabase>().basketDishDao }
+    single { get<DishesDatabase>().menuDao }
 
     //endregion
 

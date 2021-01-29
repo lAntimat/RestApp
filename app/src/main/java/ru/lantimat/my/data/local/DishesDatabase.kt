@@ -2,7 +2,7 @@ package ru.lantimat.my.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import ru.lantimat.my.data.local.dao.DishDao
+import ru.lantimat.my.data.local.dao.BasketDishDao
 import ru.lantimat.my.data.local.dao.MenuItemDao
 import ru.lantimat.my.data.local.model.BasketDishItem
 import ru.lantimat.my.data.local.model.MenuItem
@@ -15,6 +15,6 @@ import ru.lantimat.my.data.local.model.MenuItem
 )
 abstract class DishesDatabase : RoomDatabase() {
 
-    abstract val dish: DishDao
+    abstract val basketDishDao: BasketDishDao
     abstract val menuDao: MenuItemDao
 }

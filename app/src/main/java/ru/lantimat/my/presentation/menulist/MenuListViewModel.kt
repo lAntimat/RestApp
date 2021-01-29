@@ -10,12 +10,16 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import ru.lantimat.my.data.DataSource
 import ru.lantimat.my.data.SingleLiveEvent
+import ru.lantimat.my.data.local.dao.BasketDishDao
+import ru.lantimat.my.data.local.model.BasketDishItem
+import ru.lantimat.my.data.local.model.MenuItem
 import ru.lantimat.my.data.models.MenuCategory
 import ru.lantimat.my.presentation.menulist.models.MenuCategoryUi
+import timber.log.Timber
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class MenuListViewModel(private val dataSource: DataSource) : ViewModel() {
+class MenuListViewModel(private val dataSource: DataSource, private val basketDishDao: BasketDishDao) : ViewModel() {
 
     private val channel = MutableSharedFlow<Unit>()
 
@@ -93,6 +97,16 @@ class MenuListViewModel(private val dataSource: DataSource) : ViewModel() {
 
         chips.postValue(chips.value)
         scrollPosition.postValue(position)
+    }
+
+    fun onAddToBasketClick(position: Int) {
+        viewModelScope.launch {
+            val item = (items.value?.getOrNull(position) as MenuItem)
+            item.count++
+            basketDishDao.insert(BasketDishItem(item.id, item.count))
+
+            Timber.d("MenuListViewModel ${basketDishDao.find(item.id).toString()}")
+        }
     }
 
 }

@@ -12,5 +12,5 @@ val appModule = module {
 
 //    factory { DownloadObserver(get(), get()) }
 
-    viewModel { MenuListViewModel(get()) }
+    viewModel { MenuListViewModel(get(), get()) }
 }

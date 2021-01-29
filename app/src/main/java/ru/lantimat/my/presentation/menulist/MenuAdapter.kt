@@ -32,7 +32,7 @@ class MenuAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is BodyViewHolder -> holder.bind(items[position] as MenuItem, itemClickListener, btnClickListener)
+            is BodyViewHolder -> holder.bind(items[position] as MenuItem, itemClickListener, btnClickListener, position)
             is HeaderViewHolder -> holder.bind(items[position] as MenuCategory)
         }
     }
@@ -57,12 +57,15 @@ class MenuAdapter(
         fun bind(
             item: MenuItem,
             itemClickListener: ((Int) -> Unit)?,
-            btnClickListener: ((Int) -> Unit)?
+            btnClickListener: ((Int) -> Unit)?,
+            position: Int
         ) {
             this.item = item
             binding.tvTitle.text = item.name
             binding.tvDescription.text = item.description
             binding.tvPrice.text = "${item.price} руб."
+
+            binding.button.setOnClickListener { btnClickListener?.invoke(position) }
 
             Picasso.get()
                 .load(item.imgUrl)

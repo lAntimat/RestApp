@@ -7,20 +7,20 @@ import androidx.room.Query
 import ru.lantimat.my.data.local.model.BasketDishItem
 
 @Dao
-interface DishDao {
+interface BasketDishDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: BasketDishItem)
+    suspend fun insert(item: BasketDishItem)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: List<BasketDishItem>)
+    suspend fun insert(item: List<BasketDishItem>)
 
     @Query("DELETE FROM basket_dish WHERE id = :id")
-    fun delete(id: String)
+    suspend fun delete(id: String)
 
     @Query("SELECT * FROM basket_dish WHERE id = :id LIMIT 1")
-    fun find(id: String): BasketDishItem?
+    suspend fun find(id: Int): BasketDishItem?
 
     @Query("SELECT * FROM basket_dish")
-    fun findAll(): List<BasketDishItem>
+    suspend fun findAll(): List<BasketDishItem>
 }
