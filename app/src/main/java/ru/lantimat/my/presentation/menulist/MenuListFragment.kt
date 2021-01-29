@@ -2,19 +2,16 @@ package ru.lantimat.my.presentation.menulist
 
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.*
 import by.kirich1409.viewbindingdelegate.viewBinding
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import ru.lantimat.my.R
-import ru.lantimat.my.data.DataSource
-import ru.lantimat.my.data.models.MenuCategory
 import ru.lantimat.my.databinding.FragmentMenuListBinding
 import ru.lantimat.my.presentation.BaseVmFragment
-import ru.lantimat.my.presentation.menulist.models.MenuCategoryUi
+
 
 class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
 
@@ -28,11 +25,13 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
             //findNavController().navigate()
         }
 
+        initRecyclerViewChips()
+
         bindViewModel()
     }
 
     private fun initRecyclerView(items: MutableList<MenuAndHeader>) {
-        val lm = GridLayoutManager(context, 1, GridLayoutManager.VERTICAL, false)
+        val lm = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.recyclerView.apply {
             layoutManager = lm
@@ -40,22 +39,22 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
         }
 
         binding.recyclerView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            binding.recyclerView.findViewHolderForAdapterPosition(lm.findFirstVisibleItemPosition())
-                ?.let {
-                    if (it is MenuAdapter.HeaderViewHolder) {
-                        it.item?.let { menuCategory ->
-                            viewModel.setVisibleHeaderItem(menuCategory)
-                        }
-                    }
-                }
+            viewModel.onScrollChange()
+        }
+
+        binding.recyclerView.apply {
+
         }
     }
 
-    private fun initRecyclerViewChips(items: MutableList<MenuCategoryUi>) {
-        val lm = GridLayoutManager(context, 1, GridLayoutManager.HORIZONTAL, false)
+    private fun initRecyclerViewChips() {
+        val lm = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewChips.apply {
             layoutManager = lm
-            adapter = MenuChipsAdapter(items)
+            adapter = MenuChipsAdapter { menu, position ->
+                viewModel.onChipClick(menu.id)
+                binding.recyclerViewChips.smoothScrollToPosition(position)
+            }
         }
     }
 
@@ -65,11 +64,38 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
         }
 
         viewModel.chips.subscribe {
-            initRecyclerViewChips(it)
+            (binding.recyclerViewChips.adapter as MenuChipsAdapter).updateItems(it)
         }
 
         viewModel.chipsScrollPosition.subscribe {
             binding.recyclerViewChips.smoothScrollToPosition(it)
+        }
+
+        viewModel.scrollPosition.subscribe {
+            val smoothScroller: SmoothScroller = object : LinearSmoothScroller(context) {
+                override fun getVerticalSnapPreference(): Int {
+                    return SNAP_TO_START
+                }
+
+            }
+            smoothScroller.targetPosition = it
+            binding.recyclerView.layoutManager?.startSmoothScroll(smoothScroller)
+        }
+
+        viewModel.onScrollChangedDelayed.subscribe {
+            val lm = binding.recyclerView.layoutManager as LinearLayoutManager
+            lm.isSmoothScrolling.let { isSmoothScroller ->
+                if (!isSmoothScroller) {
+                    binding.recyclerView.findViewHolderForAdapterPosition(lm.findFirstVisibleItemPosition())
+                        ?.let {
+                            if (it is MenuAdapter.HeaderViewHolder) {
+                                viewModel.selectChipById(id = it.item?.id ?: 0)
+                            } else if(it is MenuAdapter.BodyViewHolder) {
+                                viewModel.selectChipById(it.item?.categoryId ?: 0)
+                            }
+                        }
+                }
+            }
         }
     }
 }

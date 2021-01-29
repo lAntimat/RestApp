@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import ru.lantimat.my.data.models.MenuCategory
-import ru.lantimat.my.data.models.MenuItem
+import ru.lantimat.my.data.local.model.MenuItem
 import java.io.IOException
 import java.lang.reflect.Type
 

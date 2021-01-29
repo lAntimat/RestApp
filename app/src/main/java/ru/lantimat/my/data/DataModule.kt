@@ -1,12 +1,14 @@
 package ru.lantimat.my.data
 
 import android.content.Context
+import androidx.room.Room
 import com.google.gson.Gson
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import ru.lantimat.my.data.local.DishesDatabase
 
 
 private const val BOOK_CHUCK_INTERCEPTOR = "BOOK_CHUCK"
@@ -47,18 +49,19 @@ val dataModule = module {
 
     //region Room database
 
-//    single {
-//        val dbClass = BookDatabase::class.java
-//        val dbName = "books.db"
-//
-//        Room.databaseBuilder(androidContext(), dbClass, dbName)
-////          .addMigrations(MIGRATION_1_2) // add migrations here when schema changes
-//            .fallbackToDestructiveMigrationOnDowngrade()
-//            .fallbackToDestructiveMigration()
-//            .build()
-//    }
+    single {
+        val dbClass = DishesDatabase::class.java
+        val dbName = "appDb.db"
 
-//    single { get<BookDatabase>().bookDao }
+        Room.databaseBuilder(androidContext(), dbClass, dbName)
+//          .addMigrations(MIGRATION_1_2) // add migrations here when schema changes
+            .fallbackToDestructiveMigrationOnDowngrade()
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    single { get<DishesDatabase>().bookDao }
+    single { get<DishesDatabase>().bookDao }
 
     //endregion
 
