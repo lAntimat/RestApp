@@ -5,7 +5,11 @@
     "name": "Моцарелла во фритюре",
     "description": "150 / 30 гр.",
     "price": 119,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
+
   },
   {
     "id": 2,
@@ -13,7 +17,10 @@
     "name": "Запечённый камамбер",
     "description": "200 / 30 гр.",
     "price": 341,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+    "descriptionStop": "Скоро будет",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
     "id": 3,
@@ -21,7 +28,10 @@
     "name": "Креветки в соусе \"Васаби\"",
     "description": "150 гр.",
     "price": 224,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
     "id": 4,
@@ -29,7 +39,10 @@
     "name": "Шипастые креветки \"Медведки\"",
     "price": 451,
     "description": "250/30/30 гр.",
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
     "id": 5,
@@ -37,134 +50,185 @@
     "name": "Ассорти солений",
     "description": "250 гр.",
     "price": 187,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 5,
+    "id": 6,
     "categoryId": 2,
     "name": "Ассорти солений",
     "description": "250 гр.",
     "price": 187,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 5,
+    "id": 7,
     "categoryId": 2,
     "name": "Ассорти солений",
     "description": "250 гр.",
     "price": 187,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 5,
+    "id": 8,
     "categoryId": 2,
     "name": "Ассорти солений",
     "description": "250 гр.",
     "price": 187,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 6,
+    "id": 9,
     "categoryId": 3,
     "name": "С лососем",
     "description": "110 гр.",
     "price": 195,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 6,
+    "id": 10,
     "categoryId": 3,
     "name": "С лососем",
     "description": "110 гр.",
     "price": 195,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 6,
+    "id": 11,
     "categoryId": 3,
     "name": "С лососем",
     "description": "110 гр.",
     "price": 195,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 6,
+    "id": 12,
     "categoryId": 3,
     "name": "С лососем",
     "description": "110 гр.",
     "price": 195,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 6,
+    "id": 13,
     "categoryId": 3,
     "name": "С лососем",
     "description": "110 гр.",
     "price": 195,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 7,
+    "id": 14,
     "categoryId": 4,
     "name": "Цезарь \"ХБ\" с курицей",
     "description": "160 гр.",
     "price": 226,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 7,
+    "id": 15,
     "categoryId": 4,
     "name": "Цезарь \"ХБ\" с курицей",
     "description": "160 гр.",
     "price": 226,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 7,
+    "id": 16,
     "categoryId": 4,
     "name": "Цезарь \"ХБ\" с курицей",
     "description": "160 гр.",
     "price": 226,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 7,
+    "id": 17,
     "categoryId": 4,
     "name": "Цезарь \"ХБ\" с курицей",
     "description": "160 гр.",
     "price": 226,
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 8,
+    "id": 18,
     "categoryId": 5,
     "name": "Шашлычок из филе куриного бедра",
     "price": 133,
     "description": "150/30 гр.",
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 8,
+    "id": 19,
     "categoryId": 5,
     "name": "Шашлычок из филе куриного бедра",
     "price": 133,
     "description": "150/30 гр.",
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 8,
+    "id": 20,
     "categoryId": 5,
     "name": "Шашлычок из филе куриного бедра",
     "price": 133,
     "description": "150/30 гр.",
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   },
   {
-    "id": 8,
+    "id": 21,
     "categoryId": 5,
     "name": "Шашлычок из филе куриного бедра",
     "price": 133,
     "description": "150/30 гр.",
-    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg"
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+     "descriptionStop": "",
+    "idPattern1": 1,
+    "idPattern2": 1
   }
 ]

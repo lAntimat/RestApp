@@ -6,5 +6,24 @@
     <fragment
         android:id="@+id/menuListFragment"
         android:name="ru.lantimat.my.presentation.menulist.MenuListFragment"
-        android:label="MenuListFragment" />
+        android:label="MenuListFragment" >
+        <action
+            android:id="@+id/action_menuListFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
+        <action
+            android:id="@+id/action_menuListFragment_to_detailInfoFragment"
+            app:destination="@id/detailInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="ru.lantimat.my.presentation.basket.BasketFragment"
+        android:label="BasketFragment" />
+    <fragment
+        android:id="@+id/detailInfoFragment"
+        android:name="ru.lantimat.my.presentation.detailinfo.DetailInfoFragment"
+        android:label="DetailInfoFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

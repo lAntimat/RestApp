@@ -2,6 +2,8 @@ package ru.lantimat.my.presentation.menulist
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
@@ -26,16 +28,28 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
         }
 
         initRecyclerViewChips()
+        initRecyclerView()
 
         bindViewModel()
+
+        binding.basketView.root.setOnClickListener { findNavController().navigate(R.id.basketFragment) }
     }
 
-    private fun initRecyclerView(items: MutableList<MenuAndHeader>) {
+    private fun initRecyclerView() {
         val lm = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.recyclerView.apply {
             layoutManager = lm
-            adapter = MenuAdapter(items)
+            adapter = MenuAdapter(
+                itemClickListener = { id ->
+                    val args = MenuListFragmentDirections.actionMenuListFragmentToDetailInfoFragment(id)
+                    findNavController().navigate(args)
+                },
+                plusClickListener = {
+                    viewModel.onPlusClick(it)
+                }, minusClickListener = {
+                    viewModel.onMinusClick(it)
+                })
         }
 
         binding.recyclerView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
@@ -60,7 +74,7 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
 
     private fun bindViewModel() {
         viewModel.items.subscribe {
-            initRecyclerView(it)
+            (binding.recyclerView.adapter as MenuAdapter).updateItems(it)
         }
 
         viewModel.chips.subscribe {
@@ -90,10 +104,20 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
                         ?.let {
                             if (it is MenuAdapter.HeaderViewHolder) {
                                 viewModel.selectChipById(id = it.item?.id ?: 0)
-                            } else if(it is MenuAdapter.BodyViewHolder) {
+                            } else if (it is MenuAdapter.BodyViewHolder) {
                                 viewModel.selectChipById(it.item?.categoryId ?: 0)
                             }
                         }
+                }
+            }
+        }
+
+        viewModel.ldBasketState.subscribe {
+            when (it) {
+                is BasketState.Gone -> binding.basketView.root.isVisible = false
+                is BasketState.Visible -> {
+                    binding.basketView.root.isVisible = true
+                    binding.basketView.tvSum.text = it.sum
                 }
             }
         }

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Состав",
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+    "ingredientId": 1
+  },
+  {
+    "id": 2,
+    "name": "Состав",
+    "imgUrl": "https://food-images.files.bbci.co.uk/food/recipes/simple_fish_dish_98008_16x9.jpg",
+    "ingredientId": 2
+  }
+]

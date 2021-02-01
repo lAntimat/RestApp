@@ -38,7 +38,7 @@ val dataModule = module {
 
     single { ResponseHandler(get<Context>().resources) }
 
-    single { DataSource(androidContext()) }
+    single { DataSource(androidContext(), get(), get()) }
 
     //endregion
 
