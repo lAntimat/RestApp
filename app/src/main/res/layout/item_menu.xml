@@ -31,7 +31,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 tools:text="Салат цезарь"
-                android:textColor="@color/black"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivImage"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +67,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="right"
-                android:textColor="@color/black"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintBottom_toTopOf="@+id/btnContainer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -124,7 +124,7 @@
                         android:background="@drawable/counter_text_rounded_bg"
                         android:gravity="center"
                         android:text="1"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/primaryTextColor" />
 
                     <TextView
                         android:id="@+id/tvPlus"

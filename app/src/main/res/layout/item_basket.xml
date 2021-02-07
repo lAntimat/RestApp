@@ -21,7 +21,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp">
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -30,7 +31,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/primaryTextColor"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/tvPrice"
                 app:layout_constraintStart_toEndOf="@+id/ivImage"
@@ -44,7 +45,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginBottom="16dp" />
 
             <TextView
                 android:id="@+id/tvPrice"
@@ -52,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:gravity="right"
-                android:textColor="@color/black"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTitle"
                 tools:text="100р" />
@@ -95,7 +97,7 @@
                         android:background="@drawable/counter_text_rounded_bg"
                         android:gravity="center"
                         android:text="1"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/primaryTextColor" />
 
                     <TextView
                         android:id="@+id/tvPlus"
@@ -114,25 +116,55 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
                 android:text="Без \nИнгридиент \nИнгридиент \nИнгридиент"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+                app:layout_constraintTop_toBottomOf="@+id/tvWithoutLabel"
+                app:layout_goneMarginBottom="16dp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvWithoutLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Без"
+                android:textColor="@color/primaryTextColor"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivImage"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/tvWith"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="С добавкой \nДобавкой \nДобавкой \nДобавкой"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvWithLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvWithLabel"
+                app:layout_goneMarginBottom="16dp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvWithLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="С добавкой \nДобавкой \nДобавкой \nДобавкой"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="С добавкой"
+                android:textColor="@color/primaryTextColor"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvWithout"
-                app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+                app:layout_constraintTop_toBottomOf="@+id/ivImage"
+                tools:visibility="visible" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

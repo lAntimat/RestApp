@@ -56,6 +56,13 @@ class MenuListViewModel(
 
     }
 
+    fun refreshItems() {
+        viewModelScope.launch {
+            items.value = getCombinedList()
+            checkBasket()
+        }
+    }
+
     private suspend fun getCombinedList(): MutableList<MenuAndHeader> {
         val menuCategories = dataSource.getCategories()
         val groupList = combineBasketAndMenuItems().groupBy { it.categoryId }
@@ -128,6 +135,7 @@ class MenuListViewModel(
             item.count++
 
             basketDishDao.insert(BasketDishItem(item.id, item.name, item.imgUrl, item.count, item.price))
+            dataSource.updateMenuItemCount(item.id, item.count)
             items.value = items.value
 
             checkBasket()
@@ -139,7 +147,8 @@ class MenuListViewModel(
             val item = (items.value?.getOrNull(position) as MenuItem)
             item.count++
 
-            basketDishDao.updateCount(item.count)
+            basketDishDao.updateCount(item.id, item.count)
+            dataSource.updateMenuItemCount(item.id, item.count)
 
             items.value = items.value
 
@@ -153,7 +162,8 @@ class MenuListViewModel(
             item.count--
 
             if (item.count == 0) basketDishDao.delete(item.id)
-            else basketDishDao.updateCount(item.count)
+            else basketDishDao.updateCount(item.id, item.count)
+            dataSource.updateMenuItemCount(item.id, item.count)
             items.value = items.value
 
             checkBasket()

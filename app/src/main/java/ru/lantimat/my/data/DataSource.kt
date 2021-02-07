@@ -80,4 +80,8 @@ class DataSource(val context: Context, val menuItemDao: MenuItemDao, private val
         return basketDishDao.findAll()
     }
 
+    suspend fun updateMenuItemCount(id: Int, count: Int) {
+        menuItemDao.updateCount(id, count)
+    }
+
 }

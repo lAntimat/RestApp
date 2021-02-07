@@ -38,4 +38,7 @@ interface MenuItemDao {
 
     @Query("SELECT * FROM menu_category")
     suspend fun findAllMenuCategories(): List<MenuCategory>
+
+    @Query("UPDATE menu_item SET count = :count WHERE id =:id")
+    suspend fun updateCount(id: Int, count: Int)
 }

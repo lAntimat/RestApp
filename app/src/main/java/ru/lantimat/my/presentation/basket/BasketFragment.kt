@@ -3,6 +3,7 @@ package ru.lantimat.my.presentation.basket
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
@@ -28,8 +29,15 @@ class BasketFragment : BaseVmFragment(R.layout.fragment_basket) {
         }
 
         initRecyclerView()
-
         bindViewModel()
+
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        binding.ivDelete.setOnClickListener {
+            viewModel.onDeleteClick()
+        }
     }
 
     private fun initRecyclerView() {

@@ -1,5 +1,6 @@
 package ru.lantimat.my.presentation.basket
 
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isInvisible
@@ -69,11 +70,31 @@ class BasketAdapter(
             binding.tvPlus.setOnClickListener { plusClickListener?.invoke(position) }
             binding.tvMinus.setOnClickListener { minusClickListener?.invoke(position) }
 
+            binding.tvWith.text = formatIngredientsString(item.ingredients)
+            binding.tvWithout.text = formatIngredientsString(item.without)
+
+            binding.tvWithLabel.isVisible = item.ingredients.isNotEmpty()
+            binding.tvWith.isVisible = item.ingredients.isNotEmpty()
+            binding.tvWithoutLabel.isVisible = item.without.isNotEmpty()
+            binding.tvWithout.isVisible = item.without.isNotEmpty()
+
             Picasso.get()
                 .load(item.imgUrl)
                 .centerCrop()
                 .resize(200, 200)
                 .into(binding.ivImage)
+        }
+
+        private fun formatIngredientsString(text: String): String {
+            StringBuilder().apply {
+                text
+                    .split(",")
+                    .forEach { s ->
+                        append(s)
+                        append("\n")
+                    }
+                return toString()
+            }
         }
     }
 

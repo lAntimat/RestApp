@@ -14,5 +14,22 @@
     "price": 10,
     "box": 0,
     "compositionId": 1
+  },
+
+  {
+    "id": 3,
+    "name": "Перец",
+    "volume": "5",
+    "price": 10,
+    "box": 0,
+    "compositionId": 2
+  },
+  {
+    "id": 4,
+    "name": "Горчица",
+    "volume": "5",
+    "price": 10,
+    "box": 0,
+    "compositionId": 2
   }
 ]

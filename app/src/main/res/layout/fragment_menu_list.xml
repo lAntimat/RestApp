@@ -29,13 +29,14 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <include
-        layout="@layout/layout_go_to_basket"
         android:id="@+id/basketView"
+        layout="@layout/layout_go_to_basket"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </include>
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible"></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

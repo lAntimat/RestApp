@@ -24,13 +24,14 @@ import timber.log.Timber
 @ExperimentalCoroutinesApi
 class BasketViewModel(private val dataSource: DataSource, private val basketDishDao: BasketDishDao) : ViewModel() {
 
-    private val channel = MutableSharedFlow<Unit>()
-
     val openNextScreen = SingleLiveEvent<Unit>()
     val items = MutableLiveData<MutableList<BasketDishItem>>()
 
-
     init {
+        loadData()
+    }
+
+    private fun loadData() {
         viewModelScope.launch {
             items.value = dataSource.getBasket()
         }
@@ -40,7 +41,7 @@ class BasketViewModel(private val dataSource: DataSource, private val basketDish
         viewModelScope.launch {
             val item = items.value?.get(position)
             item!!.count++
-            basketDishDao.updateCount(item.count)
+            basketDishDao.updateCount(item.id, item.count)
             items.refresh()
         }
     }
@@ -53,8 +54,18 @@ class BasketViewModel(private val dataSource: DataSource, private val basketDish
                 item.count = 1
                 return@launch
             }
-            basketDishDao.updateCount(item.count)
+            basketDishDao.updateCount(item.id, item.count)
             items.refresh()
+        }
+    }
+
+    fun onDeleteClick() {
+        viewModelScope.launch {
+            items.value!!.forEach {
+                dataSource.updateMenuItemCount(it.id, 0)
+            }
+            basketDishDao.deleteAll()
+            loadData()
         }
     }
 }

@@ -23,6 +23,8 @@ class MenuListFragment : BaseVmFragment(R.layout.fragment_menu_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        viewModel.refreshItems()
+
         viewModel.openNextScreen.subscribe {
             //findNavController().navigate()
         }
